@@ -26,3 +26,16 @@ set_target_properties(ARGB_static PROPERTIES OUTPUT_NAME "ARGB")
 # Set the output directories for the libraries
 set_target_properties(ARGB_shared PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 set_target_properties(ARGB_static PROPERTIES ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+
+# Add strip step for all libraries
+if (UNIX)
+    add_custom_command(TARGET ARGB_shared POST_BUILD
+        COMMAND strip $<TARGET_FILE:ARGB_shared>
+        COMMENT "Stripping shared library"
+    )
+    add_custom_command(TARGET ARGB_static POST_BUILD
+        COMMAND strip $<TARGET_FILE:ARGB_static>
+        COMMENT "Stripping static library"
+    )
+endif()
+
