@@ -19,11 +19,12 @@ std::vector<uint8_t> WS2812B::GetBytes()
     std::vector<uint8_t> bytes;
     for (auto& led : m_leds)
     {
-        if( typeid(led) == typeid(std::unique_ptr<IColoredLed>) )
+       
+        if( dynamic_cast<IColoredLed*>(led.get()) != nullptr )
         {
             const auto& coloredLed = static_cast<IColoredLed*>(led.get());
-            bytes.push_back(coloredLed->GetGreen());
             bytes.push_back(coloredLed->GetRed());
+            bytes.push_back(coloredLed->GetGreen());
             bytes.push_back(coloredLed->GetBlue());
         }
         else

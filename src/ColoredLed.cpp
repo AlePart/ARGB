@@ -1,10 +1,19 @@
 #include<ColoredLed.hpp>
 
-ColoredLed::ColoredLed()
+ColoredLed::ColoredLed() :
+IColoredLed()
 {
     m_red = 0;
     m_green = 0;
     m_blue = 0;
+    m_isOn = false;
+}
+
+ColoredLed::ColoredLed(uint8_t red, uint8_t green, uint8_t blue)
+{
+    m_red = red;
+    m_green = green;
+    m_blue = blue;
     m_isOn = false;
 }
 

@@ -11,6 +11,7 @@ private:
     bool m_isOn;
 public:
     ColoredLed();
+    ColoredLed(uint8_t red, uint8_t green, uint8_t blue);
     void On() override;
     void Off() override;
     void SetColor(uint8_t red, uint8_t green, uint8_t blue) override;

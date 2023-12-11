@@ -5,7 +5,7 @@
 class IColoredLed : public ILed
 {
 public:
-    IColoredLed(){};
+    IColoredLed():ILed(){};
     virtual void SetColor(uint8_t red, uint8_t green, uint8_t blue) =0;
     virtual void SetColor(uint32_t color) =0;
     virtual uint8_t GetRed() =0;
