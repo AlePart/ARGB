@@ -28,6 +28,7 @@ std::vector<uint8_t> WS2812B::GetBytes()
         }
         else
         {
+            
             bytes.push_back(0);
             bytes.push_back(0);
             bytes.push_back(0);
