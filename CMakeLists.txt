@@ -10,6 +10,9 @@ file(GLOB SOURCES "src/*.cpp")
 # Add the include directories
 include_directories(src/Include src/Include/Driver)
 
+# Set the optimization flag
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Os")
+
 # Create the shared library
 add_library(ARGB_shared SHARED ${SOURCES})
 
