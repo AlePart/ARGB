@@ -6,7 +6,6 @@ IColoredLed()
     m_red = 0;
     m_green = 0;
     m_blue = 0;
-    m_isOn = false;
 }
 
 ColoredLed::ColoredLed(uint8_t red, uint8_t green, uint8_t blue)
@@ -14,17 +13,21 @@ ColoredLed::ColoredLed(uint8_t red, uint8_t green, uint8_t blue)
     m_red = red;
     m_green = green;
     m_blue = blue;
-    m_isOn = false;
 }
 
 void ColoredLed::On()
 {
-    m_isOn = true;
+    m_red = 255;
+    m_green = 255;
+    m_blue = 255;
 }
 
 void ColoredLed::Off()
 {
-    m_isOn = false;
+    m_blue = 0;
+    m_green = 0;
+    m_red = 0;
+
 }
 
 void ColoredLed::SetColor(uint8_t red, uint8_t green, uint8_t blue)
@@ -54,5 +57,10 @@ uint8_t ColoredLed::GetGreen()
 uint8_t ColoredLed::GetBlue()
 {
     return m_blue;
+}
+
+bool ColoredLed::IsOn()
+{
+    return m_blue != 0 || m_green != 0 || m_red != 0;
 }
 

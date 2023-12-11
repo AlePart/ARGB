@@ -8,10 +8,11 @@ private:
     uint8_t m_red;
     uint8_t m_green;
     uint8_t m_blue;
-    bool m_isOn;
+  
 public:
     ColoredLed();
     ColoredLed(uint8_t red, uint8_t green, uint8_t blue);
+    bool IsOn() override;   
     void On() override;
     void Off() override;
     void SetColor(uint8_t red, uint8_t green, uint8_t blue) override;

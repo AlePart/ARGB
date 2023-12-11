@@ -5,6 +5,7 @@ class ILed
 {
 public:
     ILed(){};
+    virtual bool IsOn() =0;
     virtual void On() =0;
     virtual void Off() =0;
     

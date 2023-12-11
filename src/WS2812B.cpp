@@ -20,7 +20,8 @@ std::vector<uint8_t> WS2812B::GetBytes()
     for (auto& led : m_leds)
     {
        
-        if( dynamic_cast<IColoredLed*>(led.get()) != nullptr )
+        if( dynamic_cast<IColoredLed*>(led.get()) != nullptr && 
+            led->IsOn())
         {
             const auto& coloredLed = static_cast<IColoredLed*>(led.get());
             bytes.push_back(coloredLed->GetRed());
